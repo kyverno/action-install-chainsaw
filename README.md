@@ -64,7 +64,7 @@ jobs:
     name: Install Chainsaw
     steps:
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v3.1.1
+        uses: sigstore/cosign-installer@v3.6.0
       - name: Install Chainsaw
         uses: kyverno/action-install-chainsaw@v0.1.0
         with:
