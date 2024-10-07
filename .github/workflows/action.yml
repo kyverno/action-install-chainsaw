@@ -25,7 +25,7 @@ jobs:
     permissions: {}
     name: Install Chainsaw and test presence in path
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Chainsaw
         uses: ./
       - name: Check install
@@ -48,7 +48,7 @@ jobs:
     permissions: {}
     name: Install Chainsaw with cosign verification and test presence in path
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Cosign
         uses: sigstore/cosign-installer@4959ce089c160fddf62f7b42464195ba1a56d382 # v3.6.0
       - name: Install Chainsaw
@@ -75,7 +75,7 @@ jobs:
     permissions: {}
     name: Install Chainsaw and test presence in path from GitHub
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Chainsaw
         uses: kyverno/action-install-chainsaw@main
       - name: Check install
@@ -98,7 +98,7 @@ jobs:
     permissions: {}
     name: Install Chainsaw and test presence in path
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Chainsaw
         uses: ./
         with:
@@ -123,7 +123,7 @@ jobs:
     permissions: {}
     name: Try to install a wrong version
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Chainsaw
         uses: ./
         with:
@@ -138,7 +138,7 @@ jobs:
     permissions: {}
     name: Install Chainsaw and test presence in path
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Chainsaw
         uses: ./
         with:
@@ -162,7 +162,7 @@ jobs:
     permissions: {}
     name: Install Chainsaw and test presence in path with custom root dir
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - name: Install Chainsaw
         uses: ./
         with:
@@ -192,7 +192,7 @@ jobs:
           - '1.21'
     name: Try to install with go ${{ matrix.go_version }}
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
       - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
         with:
           go-version: ${{ matrix.go_version }}
