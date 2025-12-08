@@ -137,18 +137,16 @@ runs:
         $SUDO curl -sL ${release_archive_url} -o ${release_archive}
 
         if [[ "${{ inputs.verify }}" == "true" ]]; then
-          $SUDO curl -sL ${release_archive_url}.sig -o ${release_archive}.sig
-          $SUDO curl -sL ${release_archive_url}.pem -o ${release_archive}.pem
+          log_info "Downloading Sigstore bundle...\n      ${release_archive}.sigstore.json"
+          $SUDO curl -sL ${release_archive_url}.sigstore.json -o ${release_archive}.sigstore.json
 
           cosign verify-blob \
-            --certificate ${release_archive}.pem \
-            --signature ${release_archive}.sig \
+            --bundle ${release_archive}.sigstore.json \
             --certificate-identity=https://github.com/kyverno/chainsaw/.github/workflows/release.yaml@refs/tags/${{ inputs.release }} \
             --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
             ${release_archive}
 
-          $SUDO rm ${release_archive}.pem
-          $SUDO rm ${release_archive}.sig
+          $SUDO rm ${release_archive}.sigstore.json
         fi
 
         case ${{ runner.os }} in
