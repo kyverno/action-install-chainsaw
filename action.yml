@@ -134,11 +134,11 @@ runs:
         release_archive_url=https://github.com/kyverno/chainsaw/releases/download/${{ inputs.release }}/${release_archive}
 
         log_info "Downloading Chainsaw version '${{ inputs.release }}'...\n      ${release_archive_url}"
-        $SUDO curl -sL ${release_archive_url} -o ${release_archive}
+        $SUDO curl -fsSL ${release_archive_url} -o ${release_archive}
 
         if [[ "${{ inputs.verify }}" == "true" ]]; then
           log_info "Downloading Sigstore bundle...\n      ${release_archive}.sigstore.json"
-          $SUDO curl -sL ${release_archive_url}.sigstore.json -o ${release_archive}.sigstore.json
+          $SUDO curl -fsSL ${release_archive_url}.sigstore.json -o ${release_archive}.sigstore.json
 
           cosign verify-blob \
             --bundle ${release_archive}.sigstore.json \
